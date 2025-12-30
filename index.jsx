@@ -169,7 +169,7 @@ const App = () => {
         {/* ★★★ 背景图 (Background Image) ★★★ */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" 
+            src="/2.png" 
             alt="Agriculture Background" 
             className="w-full h-full object-cover opacity-80"
           />
@@ -240,6 +240,7 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
 
