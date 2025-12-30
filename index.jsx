@@ -134,7 +134,7 @@ const App = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "/oled.jpg" },
-              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "" },
+              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "/time1.png" },
               { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface.", img: "/4.jpg" }
             ].map((s, i) => (
               <div key={i} className="bg-white/5 p-5 rounded-2xl border border-white/10 flex flex-col h-full hover:bg-white/10 transition-colors">
@@ -216,7 +216,7 @@ const App = () => {
           <div className="grid grid-cols-3 gap-10">
             {[
               { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.', img: '/zt.jpg' },
-              { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.', img: '/team2.png' },
+              { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.', img: '/xzy.png' },
               { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.', img: '/ysy.jpg' }
             ].map((m) => (
               <div key={m.n} className="group">
@@ -264,6 +264,7 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
 
