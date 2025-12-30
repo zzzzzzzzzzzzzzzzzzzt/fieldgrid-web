@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 确保在手机和平板等移动端也能完美适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FieldGrid | AI Agricultural Monitoring</title>
+    
+    <!-- 加载 Tailwind CSS 用于处理页面样式 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+      /* 基础样式重置，确保加载时背景颜色一致，防止白屏闪烁 */
+      body {
+        margin: 0;
+        background-color: #F8FAF9;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 所有的 React 组件（即 index.jsx 里的代码）都会被渲染到这个 div 容器中 -->
+    <div id="root"></div>
+
+    <!-- 
+      核心配置：
+      1. type="module" 告诉浏览器这是一个模块化脚本。
+      2. src="/index.jsx" 指向你的核心代码文件。
+      注意：请确保你的 GitHub 仓库根目录下确实有一个名为 index.jsx 的文件。
+    -->
+    <script type="module" src="/index.jsx"></script>
+  </body>
+</html>
