@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
 import { 
   Globe, Menu, X, ChevronRight, Cpu, Zap, 
   ShieldCheck, TrendingUp, Mail, Phone, MapPin, Award 
@@ -78,27 +79,14 @@ const App = () => {
           </div>
         </div>
         
-        {/* ★★★ 重要：主视觉图区域 (Main Showcase Image) ★★★ */}
+        {/* ★★★ 主视觉图片 (Main Device Image) ★★★ */}
         <div className="mt-12 w-full max-w-4xl h-72 md:h-[500px] bg-white rounded-[2.5rem] overflow-hidden border border-emerald-50 flex items-center justify-center relative shadow-2xl group">
-           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-900/10 to-transparent z-10 pointer-events-none"></div>
-           
-           {/* 如果你要换成自己的照片：
-               1. 将照片放入 GitHub 的 public/images/ 文件夹
-               2. 将 src 属性改为：src="/images/你的照片名.png" 
-           */}
            <img 
-             src="https://i.ibb.co/YFSt9Vdr/ai.png" // <--- 修改此处的地址
+             src="https://i.ibb.co/YFSt9Vdr/ai.png" 
              alt="FieldGrid AI Device" 
              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-             onError={(e) => { 
-                // 如果图片加载失败，显示的默认背景图
-                e.target.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'; 
-             }}
+             onError={(e) => { e.target.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'; }}
            />
-           
-           <div className="absolute inset-0 flex items-center justify-center bg-gray-50 -z-10">
-              <span className="text-emerald-800/20 text-[10px] font-bold uppercase tracking-widest italic animate-pulse">Loading Device Preview...</span>
-           </div>
         </div>
       </section>
 
@@ -122,13 +110,9 @@ const App = () => {
                 </div>
               </div>
             </div>
-            {/* ★★★ 重要：设备细节展示图 (Detail Image) ★★★ */}
+            {/* ★★★ 设备渲染图占位 (Detail Rendering) ★★★ */}
             <div className="aspect-[16/10] bg-gray-50 rounded-3xl flex items-center justify-center border border-emerald-50 shadow-inner overflow-hidden relative">
-               <div className="absolute inset-0 bg-emerald-100/10 blur-xl"></div>
-               {/* 此处目前是占位符，你可以把 <span> 换成 <img> 标签：
-                   <img src="/images/detail.png" className="w-full h-full object-cover" /> 
-               */}
-               <span className="relative z-10 text-emerald-800/10 text-[9px] font-bold uppercase italic text-center leading-loose">Device Detail Rendering</span>
+               <span className="relative z-10 text-emerald-800/10 text-[9px] font-bold uppercase italic">Device Detail Rendering</span>
             </div>
           </div>
         </div>
@@ -138,18 +122,13 @@ const App = () => {
       <section id="how-it-works" className="py-20 bg-[#064E3B] text-white">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-xl font-bold tracking-tight mb-12 text-center uppercase tracking-widest">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "Field Grid Mapping" },
-              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "Cloud Connectivity" },
-              { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface.", img: "Mobile Decision Interface" }
+              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations." },
+              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions." },
+              { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface." }
             ].map((s, i) => (
               <div key={i} className="bg-white/5 p-5 rounded-2xl border border-white/10 flex flex-col h-full hover:bg-white/10 transition-colors">
-                {/* ★★★ 重要：工作原理示意图 (Mechanism Illustrations) ★★★ */}
-                <div className="h-32 bg-white/5 rounded-xl mb-4 flex items-center justify-center italic text-white/20 text-[8px] border border-white/5 overflow-hidden text-center px-4">
-                  {/* 这里可以替换为 3 张不同的说明图 */}
-                  <span>[Illustration: {s.img}]</span>
-                </div>
                 <div className="flex items-center space-x-2 mb-2">
                   <span className="text-[10px] font-black text-emerald-400">0{i+1}</span>
                   <h4 className="font-bold text-[12px]">{s.t}</h4>
@@ -172,7 +151,7 @@ const App = () => {
             {[
               { i: <TrendingUp size={14}/>, t: "Cost & Density", d: "Unit cost reduced to 1/20 of traditional devices, enabling true large-scale grid deployment." },
               { i: <Zap size={14}/>, t: "AI Forecasting", d: "Predictive alerts for frost and extreme heat based on localized real-time data." },
-              { i: <Cpu size={14}/>, t: "Scalability", d: "Modular design allows integration of soil and pest monitoring sensors as needed." },
+              { i: <Cpu size={14}/>, t: "Scalability", d: "Modular design allows integration of soil and pest monitoring sensors." },
               { i: <ShieldCheck size={14}/>, t: "Weatherproof", d: "Field-tested in high humidity and extreme mountain climates." }
             ].map((item, idx) => (
               <div key={idx} className="p-5 bg-emerald-50/30 rounded-2xl space-y-3 border border-emerald-100/50 hover:bg-emerald-100/40 transition-all group">
@@ -187,32 +166,26 @@ const App = () => {
 
       {/* 5. Global Impact */}
       <section id="impact" className="relative py-24 overflow-hidden min-h-[500px] flex items-center">
-        {/* ★★★ 重要：背景装饰大图 (Background Impact Image) ★★★ */}
+        {/* ★★★ 背景图 (Background Image) ★★★ */}
         <div className="absolute inset-0 z-0">
-          {/* 这里是一张体现农业氛围的背景图 */}
           <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" // <--- 修改此处背景图地址
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000" 
             alt="Agriculture Background" 
             className="w-full h-full object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B]/95 via-[#064E3B]/80 to-transparent"></div>
         </div>
-
         <div className="max-w-5xl mx-auto px-6 relative z-10 w-full text-white">
           <div className="max-w-xl">
             <h2 className="text-2xl font-black tracking-tight mb-8 uppercase tracking-widest">Global Impact</h2>
             <div className="space-y-10">
               <div className="border-l-2 border-emerald-400 pl-6 py-2">
                 <h3 className="font-bold text-[14px] mb-2 text-emerald-300 uppercase tracking-widest">Empowering Smallholders</h3>
-                <p className="text-[12px] leading-relaxed text-emerald-50/80">
-                  At a cost of only $99, FieldGrid gives farmers proactive control against climate volatility, reducing potential losses from extreme weather by up to 20%.
-                </p>
+                <p className="text-[12px] leading-relaxed text-emerald-50/80">At a cost of only $99, FieldGrid gives farmers proactive control, reducing potential losses from extreme weather by up to 20%.</p>
               </div>
               <div className="border-l-2 border-emerald-400 pl-6 py-2">
                 <h3 className="font-bold text-[14px] mb-2 text-emerald-300 uppercase tracking-widest">Data-Driven Ecosystem</h3>
-                <p className="text-[12px] leading-relaxed text-emerald-50/80">
-                  Providing transparent underlying data for agricultural insurance and supply chains, reducing systemic risk for hundreds of millions of farmers across Asia.
-                </p>
+                <p className="text-[12px] leading-relaxed text-emerald-50/80">Providing transparent data for agricultural insurance and supply chains, reducing systemic risk across Asia.</p>
               </div>
             </div>
           </div>
@@ -225,16 +198,12 @@ const App = () => {
           <h2 className="text-xl font-bold tracking-tight mb-12 text-[#064E3B] uppercase tracking-widest">Team Members</h2>
           <div className="grid grid-cols-3 gap-10">
             {[
-              { n: 'Zhao Tai', r: 'Project Lead & HW Development', d: 'Expert in embedded systems and sensor integration.' },
-              { n: 'Xu Ziyang', r: 'Strategy & Operations', d: 'Focused on market entry strategies and business model architecture.' },
-              { n: 'Yan Siyao', r: 'Visual & Experience Design', d: 'Architect of product branding and user interaction interfaces.' }
+              { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.' },
+              { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.' },
+              { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.' }
             ].map((m) => (
               <div key={m.n} className="group">
-                {/* ★★★ 重要：团队成员头像 (Team Member Avatars) ★★★ */}
-                <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-full mb-4 border border-emerald-100 group-hover:bg-emerald-100 transition-all flex items-center justify-center overflow-hidden">
-                   {/* 这里可以放入成员的照片：
-                       <img src="/images/member1.jpg" className="w-full h-full object-cover" /> 
-                   */}
+                <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-full mb-4 border border-emerald-100 flex items-center justify-center">
                    <span className="text-[8px] text-emerald-800/30 uppercase font-bold italic">Photo</span>
                 </div>
                 <p className="text-[12px] font-black text-[#064E3B]">{m.n}</p>
@@ -247,25 +216,27 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="py-20 bg-[#0A120D] text-white rounded-t-[3rem]">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      <footer id="contact" className="py-20 bg-[#0A120D] text-white rounded-t-[3rem] text-center">
+        <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-black tracking-tighter mb-8 uppercase">Join Our Mission</h2>
           <div className="flex flex-wrap justify-center gap-6 mb-12 text-[10px] font-bold tracking-[0.1em] uppercase opacity-40">
-            <div className="flex items-center space-x-1.5 cursor-pointer"><Mail size={12}/> <span>261173568@qq.com</span></div>
-            <div className="flex items-center space-x-1.5 cursor-pointer"><Phone size={12}/> <span>+86 13261910892</span></div>
-            <div className="flex items-center space-x-1.5 cursor-pointer"><MapPin size={12}/> <span>BEIJING</span></div>
+            <div className="flex items-center space-x-1.5"><Mail size={12}/> <span>261173568@qq.com</span></div>
+            <div className="flex items-center space-x-1.5"><Phone size={12}/> <span>+86 13261910892</span></div>
+            <div className="flex items-center space-x-1.5"><MapPin size={12}/> <span>BEIJING</span></div>
           </div>
-          <div className="flex flex-col md:flex-row gap-3 mb-16">
-            <input type="text" placeholder="Your Name" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-5 py-3 text-[11px] focus:outline-none focus:border-emerald-500 transition-all" />
-            <button className="bg-emerald-700 text-white px-10 py-3 rounded-xl font-bold text-[11px] hover:bg-emerald-500 transition-all shadow-xl shadow-emerald-950/40 uppercase tracking-widest">Submit Information</button>
-          </div>
-          <p className="opacity-20 text-[8px] uppercase tracking-[0.4em]">
-            © 2025 FieldGrid | Triple-T Team | Conrad Challenge
-          </p>
+          <p className="opacity-20 text-[8px] uppercase tracking-[0.4em]">© 2025 FieldGrid | Triple-T Team | Conrad Challenge</p>
         </div>
       </footer>
     </div>
   );
 };
 
-export default App;
+// --- 渲染逻辑 ---
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
