@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import { Analytics } from '@vercel/analytics/react';
 import { 
   Globe, Menu, X, ChevronRight, Cpu, Zap, 
   ShieldCheck, TrendingUp, Mail, Phone, MapPin, Award 
@@ -251,6 +252,7 @@ const App = () => {
           <p className="opacity-20 text-[8px] uppercase tracking-[0.4em]">© 2025 FieldGrid | Triple-T Team | Conrad Challenge</p>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 };
