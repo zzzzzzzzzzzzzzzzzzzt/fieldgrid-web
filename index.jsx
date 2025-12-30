@@ -116,7 +116,7 @@ const App = () => {
             {/* ★★★ 设备详细渲染图 (建议文件名: detail.png) ★★★ */}
             <div className="aspect-[16/10] bg-gray-50 rounded-3xl flex items-center justify-center border border-emerald-50 shadow-inner overflow-hidden relative group">
                <img 
-                 src="public/2.jpg" 
+                 src="/2.jpg" 
                  alt="Detail Rendering" 
                  className="w-full h-full object-cover opacity-80"
                  onError={(e) => { e.target.style.display='none'; }}
@@ -134,7 +134,7 @@ const App = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "/2.jpg" },
-              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "/3.jpg" },
+              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "" },
               { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface.", img: "/4.jpg" }
             ].map((s, i) => (
               <div key={i} className="bg-white/5 p-5 rounded-2xl border border-white/10 flex flex-col h-full hover:bg-white/10 transition-colors">
@@ -182,7 +182,7 @@ const App = () => {
         {/* ★★★ 背景图 (2.png) ★★★ */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/2.png" 
+            src="/3.jpg" 
             alt="Agriculture Background" 
             className="w-full h-full object-cover"
             onError={(e) => { 
@@ -264,6 +264,7 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
 
