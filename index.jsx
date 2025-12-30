@@ -79,13 +79,16 @@ const App = () => {
           </div>
         </div>
         
-        {/* ★★★ 主视觉图片 (Main Device Image) ★★★ */}
+        {/* ★★★ 主视觉图片 (1.png) ★★★ */}
         <div className="mt-12 w-full max-w-4xl h-72 md:h-[500px] bg-white rounded-[2.5rem] overflow-hidden border border-emerald-50 flex items-center justify-center relative shadow-2xl group">
            <img 
              src="/1.png" 
              alt="FieldGrid AI Device" 
              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-             onError={(e) => { e.target.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'; }}
+             onError={(e) => { 
+               e.target.onerror = null;
+               e.target.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'; 
+             }}
            />
         </div>
       </section>
@@ -110,9 +113,15 @@ const App = () => {
                 </div>
               </div>
             </div>
-            {/* ★★★ 设备渲染图占位 (Detail Rendering) ★★★ */}
-            <div className="aspect-[16/10] bg-gray-50 rounded-3xl flex items-center justify-center border border-emerald-50 shadow-inner overflow-hidden relative">
-               <span className="relative z-10 text-emerald-800/10 text-[9px] font-bold uppercase italic">Device Detail Rendering</span>
+            {/* ★★★ 设备详细渲染图 (建议文件名: detail.png) ★★★ */}
+            <div className="aspect-[16/10] bg-gray-50 rounded-3xl flex items-center justify-center border border-emerald-50 shadow-inner overflow-hidden relative group">
+               <img 
+                 src="/detail.png" 
+                 alt="Detail Rendering" 
+                 className="w-full h-full object-cover opacity-80"
+                 onError={(e) => { e.target.style.display='none'; }}
+               />
+               <span className="absolute z-10 text-emerald-800/20 text-[9px] font-bold uppercase italic group-hover:opacity-100">Device Detail Rendering (/detail.png)</span>
             </div>
           </div>
         </div>
@@ -124,11 +133,15 @@ const App = () => {
           <h2 className="text-xl font-bold tracking-tight mb-12 text-center uppercase tracking-widest">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations." },
-              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions." },
-              { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface." }
+              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "/how1.png" },
+              { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "/how2.png" },
+              { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface.", img: "/how3.png" }
             ].map((s, i) => (
               <div key={i} className="bg-white/5 p-5 rounded-2xl border border-white/10 flex flex-col h-full hover:bg-white/10 transition-colors">
+                {/* ★★★ How It Works 图片位置 ★★★ */}
+                <div className="w-full h-32 bg-black/20 rounded-xl mb-4 overflow-hidden">
+                  <img src={s.img} alt={s.t} className="w-full h-full object-cover opacity-60" onError={(e) => { e.target.style.display='none'; }} />
+                </div>
                 <div className="flex items-center space-x-2 mb-2">
                   <span className="text-[10px] font-black text-emerald-400">0{i+1}</span>
                   <h4 className="font-bold text-[12px]">{s.t}</h4>
@@ -166,12 +179,16 @@ const App = () => {
 
       {/* 5. Global Impact */}
       <section id="impact" className="relative py-24 overflow-hidden min-h-[500px] flex items-center">
-        {/* ★★★ 背景图 (Background Image) ★★★ */}
+        {/* ★★★ 背景图 (2.png) ★★★ */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/2.png" 
             alt="Agriculture Background" 
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover"
+            onError={(e) => { 
+              e.target.onerror = null;
+              e.target.src = 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000'; 
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#064E3B]/95 via-[#064E3B]/80 to-transparent"></div>
         </div>
@@ -198,13 +215,20 @@ const App = () => {
           <h2 className="text-xl font-bold tracking-tight mb-12 text-[#064E3B] uppercase tracking-widest">Team Members</h2>
           <div className="grid grid-cols-3 gap-10">
             {[
-              { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.' },
-              { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.' },
-              { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.' }
+              { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.', img: '/team1.png' },
+              { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.', img: '/team2.png' },
+              { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.', img: '/team3.png' }
             ].map((m) => (
               <div key={m.n} className="group">
-                <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-full mb-4 border border-emerald-100 flex items-center justify-center">
-                   <span className="text-[8px] text-emerald-800/30 uppercase font-bold italic">Photo</span>
+                {/* ★★★ 团队成员照片位置 ★★★ */}
+                <div className="w-16 h-16 mx-auto bg-emerald-50 rounded-full mb-4 border border-emerald-100 flex items-center justify-center overflow-hidden">
+                   <img 
+                     src={m.img} 
+                     alt={m.n} 
+                     className="w-full h-full object-cover" 
+                     onError={(e) => { e.target.style.display='none'; }} 
+                   />
+                   <span className="text-[8px] text-emerald-800/30 uppercase font-bold italic absolute group-hover:opacity-0">Photo</span>
                 </div>
                 <p className="text-[12px] font-black text-[#064E3B]">{m.n}</p>
                 <p className="text-[9px] font-bold text-emerald-600 uppercase tracking-tighter mb-2">{m.r}</p>
@@ -240,7 +264,3 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
-
-
-
-
