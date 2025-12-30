@@ -133,7 +133,7 @@ const App = () => {
           <h2 className="text-xl font-bold tracking-tight mb-12 text-center uppercase tracking-widest">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "/2.jpg" },
+              { t: "Grid-based Deployment", d: "Flexible node arrangement across plots to capture subtle environmental fluctuations.", img: "/oled.jpg" },
               { t: "Real-time Sync", d: "Synchronize localized data to the encrypted AI cloud every second for timely predictions.", img: "" },
               { t: "Intelligent Alerts", d: "Deliver specific cultivation advice directly to farmers via mobile interface.", img: "/4.jpg" }
             ].map((s, i) => (
@@ -215,9 +215,9 @@ const App = () => {
           <h2 className="text-xl font-bold tracking-tight mb-12 text-[#064E3B] uppercase tracking-widest">Team Members</h2>
           <div className="grid grid-cols-3 gap-10">
             {[
-              { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.', img: '/team1.png' },
+              { n: 'Zhao Tai', r: 'Project Lead', d: 'Expert in embedded systems.', img: '/zt.jpg' },
               { n: 'Xu Ziyang', r: 'Strategy', d: 'Focused on market entry.', img: '/team2.png' },
-              { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.', img: '/team3.png' }
+              { n: 'Yan Siyao', r: 'Design', d: 'Architect of product branding.', img: '/ysy.jpg' }
             ].map((m) => (
               <div key={m.n} className="group">
                 {/* ★★★ 团队成员照片位置 ★★★ */}
@@ -264,6 +264,7 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
 
