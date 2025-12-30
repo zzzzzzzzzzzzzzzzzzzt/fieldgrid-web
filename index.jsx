@@ -116,7 +116,7 @@ const App = () => {
             {/* ★★★ 设备详细渲染图 (建议文件名: detail.png) ★★★ */}
             <div className="aspect-[16/10] bg-gray-50 rounded-3xl flex items-center justify-center border border-emerald-50 shadow-inner overflow-hidden relative group">
                <img 
-                 src="/2.jpg" 
+                 src="public/2.jpg" 
                  alt="Detail Rendering" 
                  className="w-full h-full object-cover opacity-80"
                  onError={(e) => { e.target.style.display='none'; }}
@@ -264,5 +264,6 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
