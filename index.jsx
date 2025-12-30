@@ -82,7 +82,7 @@ const App = () => {
         {/* ★★★ 主视觉图片 (Main Device Image) ★★★ */}
         <div className="mt-12 w-full max-w-4xl h-72 md:h-[500px] bg-white rounded-[2.5rem] overflow-hidden border border-emerald-50 flex items-center justify-center relative shadow-2xl group">
            <img 
-             src="picture/1.png" 
+             src="/1.png" 
              alt="FieldGrid AI Device" 
              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
              onError={(e) => { e.target.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'; }}
@@ -240,5 +240,6 @@ if (rootElement) {
     </React.StrictMode>
   );
 }
+
 
 
